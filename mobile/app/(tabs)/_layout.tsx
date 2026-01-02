@@ -9,7 +9,11 @@ export default function TabsLayout() {
    
     const insets = useSafeAreaInsets();
 
-    const {isSignedIn} = useAuth();
+    const {isSignedIn,isLoaded} = useAuth();
+
+    if(!isLoaded){
+        return null;
+    }
 
     if(!isSignedIn){
         return <Redirect href="/(auth)"/>
@@ -19,6 +23,7 @@ export default function TabsLayout() {
     <Tabs
     screenOptions={{
         headerShown:false,
+        tabBarShowLabel:false,
         tabBarActiveTintColor:'#1DA1F2',
         tabBarInactiveTintColor:'#657786',
         tabBarStyle:{
@@ -34,7 +39,7 @@ export default function TabsLayout() {
         <Tabs.Screen
          name='index'
          options={{
-            tabBarShowLabel:false,
+           
             tabBarIcon:({color,size})=>{
               return <Feather name='home' color={color} size={size}/>
             }
@@ -44,7 +49,7 @@ export default function TabsLayout() {
         <Tabs.Screen
          name='search'
          options={{
-            tabBarShowLabel:false,
+           
             tabBarIcon:({color,size})=>{
               return <Feather name='search' color={color} size={size}/>
             }
@@ -54,7 +59,7 @@ export default function TabsLayout() {
         <Tabs.Screen
          name='notifications'
          options={{
-            tabBarShowLabel:false,
+            
             tabBarIcon:({color,size})=>{
               return <Feather name='bell' color={color} size={size}/>
             }
@@ -64,7 +69,7 @@ export default function TabsLayout() {
         <Tabs.Screen
          name='message'
          options={{
-            tabBarShowLabel:false,
+            
             tabBarIcon:({color,size})=>{
               return <Feather name='mail' color={color} size={size}/>
             }
@@ -74,7 +79,6 @@ export default function TabsLayout() {
         <Tabs.Screen
          name='profile'
          options={{
-            tabBarShowLabel:false,
             tabBarIcon:({color,size})=>{
               return <Feather name='user' color={color} size={size}/>
             }

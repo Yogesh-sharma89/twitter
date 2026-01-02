@@ -7,9 +7,12 @@ import { TouchableOpacity } from 'react-native';
 export default function SignOutButton() {
 
     const {handleSignOut} = useSignOut();
-    
+
   return (
-    <TouchableOpacity onPress={handleSignOut}>
+    <TouchableOpacity
+    accessibilityLabel='Log out'
+    accessibilityRole='button'
+    onPress={handleSignOut}>
         <Feather name='log-out' size={25} color={'#E0245E'}/>
     </TouchableOpacity>
   );
