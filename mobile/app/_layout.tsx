@@ -8,12 +8,13 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
+    
     <ClerkProvider tokenCache={tokenCache}>
-      <Stack>
+      <Stack screenOptions={{headerShown:false}}>
         <Stack.Screen name="(auth)" options={{headerShown:false}}/>
-        <Stack.Screen name="index" options={{headerShown:false}}/>
       </Stack>
     </ClerkProvider>
+   
     </SafeAreaProvider>
   )
 }
