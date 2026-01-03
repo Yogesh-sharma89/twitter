@@ -40,6 +40,12 @@
           }
         }
       ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow Twitter to access your microphone."
+        }
+      ],
       "expo-web-browser"
     ],
     "experiments": {
