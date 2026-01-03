@@ -11,4 +11,8 @@ export const useAuthGuard = ()=>{
     if(!isSignedIn){
         router.replace('/(auth)')
     }
+
+    if(isSignedIn){
+        router.replace('/(tabs)')
+    }
 }

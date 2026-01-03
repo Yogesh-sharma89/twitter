@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { View, Text, TextInput } from "react-native";
+import React, {  useState } from "react";
+import { View, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import Category from "@/components/category";
@@ -22,8 +22,7 @@ export default function SearchScreen() {
 
   const [category, setCategory] = useState<string>("all");
 
-  const player = useAudioPlayer(celebrateSound,{
-  })
+  const player = useAudioPlayer(celebrateSound)
 
   const topic_wise_category =
     category === "all"

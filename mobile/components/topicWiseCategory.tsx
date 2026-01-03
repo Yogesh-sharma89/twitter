@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Alert } from 'react-native';
 
 
 interface TrendingTopic{
@@ -39,7 +39,18 @@ export default function TopicWiseCategory({data,title,handleCelebrate}:trendList
     ListFooterComponent={
      ( data.length>10 ?
       <TouchableOpacity className='mt-10 mb-4 w-full '
-      onPress={async()=>await handleCelebrate()}
+      onPress={
+        async()=>{
+          try{
+              await handleCelebrate();
+           
+          } catch(err){
+              console.log('Celebration failed : '+err);
+              Alert.alert('Error','Failed to celebrate.')
+            }
+        }
+        
+        }
       >
         <Text className='text-center text-xl'>Topics end here ❤️ - Tap to celebrate 🎉</Text>
       </TouchableOpacity>
